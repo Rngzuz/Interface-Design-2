@@ -1,0 +1,72 @@
+@mixin createColumns($name, $number, $gutter) {
+    [class^="#{$name}"] {
+        padding: $gutter;
+    }
+
+    @for $count from 0 through $number {
+        .#{$name}#{$count} {
+            @if $count == 0 {
+                display: none;
+            } @else {
+                flex: 1 0 (100%/$number*$count);
+            }
+        }
+    }
+}
+
+$columnCount: 12;
+$columnGutter: 1rem;
+$columnSmall: 768px;
+$columnMedium: 992px;
+$columnLarge: 1200px;
+
+.container {
+    padding: 0 $columnGutter;
+}
+
+.row {
+    display: flex;
+    margin: 0 (-$columnGutter);
+}
+
+@include createColumns(
+    'col-x-',
+    $columnCount,
+    $columnGutter
+);
+
+@media (min-width: $columnSmall) {
+    .container {
+        width: $columnSmall - 40px;
+    }
+
+    @include createColumns(
+        'col-s-',
+        $columnCount,
+        $columnGutter
+    );
+}
+
+@media (min-width: $columnMedium) {
+    .container {
+        width: $columnMedium - 40px;
+    }
+
+    @include createColumns(
+        'col-m-',
+        $columnCount,
+        $columnGutter
+    );
+}
+
+@media (min-width: $columnLarge) {
+    .container {
+        width: $columnLarge - 40px;
+    }
+
+    @include createColumns(
+        'col-l-',
+        $columnCount,
+        $columnGutter
+    );
+}
