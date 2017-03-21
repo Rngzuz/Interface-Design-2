@@ -1,21 +1,21 @@
-$columnCount: 12;
+//Grid variables 
+$prefix: "col";
+$small: "small";
+$medium: "medium";
+$large: "large";
+$columns: 12;
+$gutter: 7px;
 
-$defaultBorderRadius: 4px;
-$defaultColor: #808080;
+//Other
+$fontSize: 14px;
+$lineHeight: 1.4;
+$radius: 4px;
 
-$defaultFontSize: 14px;
-$defaultLineHeight: 1.4;
+$grey1: #808080;
+$grey2: #CCC;
+$grey3: #A6A6A6;
+$orange1: #bf691d;
 
-$defaultPadding: $defaultFontSize;
+$padding: $fontSize;
 
-$greyColor1: #CCC;
-$greyColor2: #A6A6A6;
-$orangeColor1: #bf691d;
-
-$containerName: "grid";
-$rowName: "row";
-
-$columnMedium: 768px;
-$columnLarge: 992px;
-
-$defaultInputHeight: floor($defaultLineHeight * $defaultFontSize) + floor($defaultPadding * 2) - 1px;
+$inputHeight: floor($lineHeight * $fontSize) + floor($padding * 2) - 1px;

@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="space-small"></div>
 
-        <div class="grid">
-            <div class="row space-small">      
-                <div class="col-small-12 col-medium-8 space-small">
-                    <div class="input-group">
-                        <input type="text" placeholder="From city or airport">
-                        <div class="icon-plane"></div>
-                    </div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-                <div class="col-small-12 col-medium-4 space-small">
-                    <div class="input-group">
-                        <input type="date" placeholder="From date">
-                        <div class="icon-calendar-empty"></div>
-                    </div>
-                </div>
+<body>
+    <div class="space-small"></div>
 
-                <div class="col-small-12 col-medium-8 space-small nospace-medium">
-                    <div class="input-group">
-                        <input type="text" placeholder="To city, airport or region">
-                        <div class="icon-plane"></div>
-                    </div>
-                </div>
-
-                <div class="col-small-12 col-medium-4">
-                    <div class="input-group">
-                        <input type="date" placeholder="To date">
-                        <div class="icon-calendar-empty"></div>
-                    </div>
+    <div class="container">
+        <div class="row space-medium">
+            <div class="col-small-12 col-medium-7 space-small nospace-medium">
+                <div class="input-group">
+                    <input type="text" placeholder="From city or airport">
+                    <div class="icon-plane"></div>
                 </div>
             </div>
 
-            <div class="row space-small">
-
-                <div class="col-small-6 col-medium-4 space-small nospace-medium">
-                    <div class="input-group">
-                        <select>
-                            <option>One-way trip</option>
-                            <option>Return trip</option>
-                        </select>
-                        <div class="icon-sync"></div>
-                    </div>
+            <div class="col-small-12 col-medium-5">
+                <div class="input-group">
+                    <input type="date" placeholder="From date">
+                    <div class="icon-calendar-empty"></div>
                 </div>
-                <div class="col-small-6 col-medium-4 space-small nospace-medium">
-                    <div class="input-group">
-                        <input type="text" placeholder="From city or airport">
-                        <div class="icon-plane"></div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
 
-    </body>
+        <hr class="shown-small">
+
+        <div class="row space-medium">
+            <div class="col-small-12 col-medium-7 space-small">
+                <div class="input-group">
+                    <input type="text" placeholder="To city, airport or region">
+                    <div class="icon-plane"></div>
+                </div>
+            </div>
+
+            <div class="col-small-12 col-medium-5">
+                <div class="input-group">
+                    <input type="date" placeholder="To date">
+                    <div class="icon-calendar-empty"></div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="shown-small">
+
+        <div class="row space-small">
+            <div class="col-small-12 col-medium-2 space-small nospace-medium">
+                <label for="passengers">Passengers</label>
+                <div class="input-group">
+                    <input id="passengers" type="number" value="1">
+                    <div class="icon-users2"></div>
+                </div>
+            </div>
+
+            <div class="col-small-12 col-medium-5 space-small nospace-medium">
+                <label for="trip">Trip type</label>
+                <div class="input-group">
+                    <select id="trip">
+                        <option>One-way trip</option>
+                        <option>Return trip</option>
+                    </select>
+                    <div class="icon-sync"></div>
+                </div>
+            </div>
+
+            <div class="col-small-12 col-medium-5">
+                <label for="class">Ticket class</label>
+                <div class="input-group">
+                    <select id="class">
+                        <option>Economy class</option>
+                        <option>Business class</option>
+                        <option>First class</option>
+                    </select>
+                    <div class="icon-ticket"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

@@ -1,110 +1,162 @@
-@import "variables";
+@import "variables.scss";
 
-//Enclose content in a media query if $containerWidth is greater than 0 and not null.
-@mixin createColumnMediaQuery($containerWidth) {
-    @if $containerWidth == 0 or $containerWidth == null {
-        @content;
-    } @else {
-        @media (min-width: $containerWidth) {
-            @content;
+//Make specific sized flex columns
+@mixin flexColumns($prefix, $name, $columns) {
+    @for $index from 1 through $columns {
+        $width: 100%/$columns*$index;
+
+        .#{$prefix}-#{$name}-#{$index} {
+            flex: 0 0 $width;
+            max-width: $width;
         }
     }
 }
 
-//Creates the grid container, row and columns based on the parameters.
-@mixin createSections($containerName, $rowName, $columnName, $columnNumber, $columnGutter, $breakpoint, $lastColumnGutter, $hasFlex) {
-    .col {
+//Make flex utilities e.g. centering children
+@mixin flexUtils($name) {
+    $properties: (
+        flex-direction: ("row", "row-reverse", "column", "column-reverse"),
+        flex-wrap: ("nowrap", "wrap", "wrap-reverse"),
+        justify-content: ("flex-start", "flex-end", "center", "space-between", "space-around"),
+        align-self: ("auto", "flex-start", "flex-end", "center", "baseline", "stretch"),
+        align-items: ("flex-start", "flex-end", "center", "baseline", "stretch"),
+        align-content: ("flex-start", "flex-end", "center", "space-between", "space-around", "stretch")
+    );
+
+    @each $key, $list in $properties {
+        @each $value in $list {
+            .#{$key}-#{$value}-#{$name} {
+                #{$key}: #{$value};
+            }
+        }
+    }
+}
+
+.container {
+    padding: 0 $gutter;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 (-$gutter);
+}
+
+[class*="#{$prefix}-"] {
+    padding: 0 $gutter;
+}
+
+//SMALL BREAKPOINT
+@include flexUtils($small);
+
+.col-#{$small} {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+@include flexColumns($prefix, $small, $columns);
+
+.space-#{$small} {
+    padding-bottom: 2 * $gutter;
+}
+
+.nospace-#{$small} {
+    padding-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .hidden-#{$small} {
+        display: none;
+    }
+
+    .shown-#{$medium} {
+        display: none;
+    }
+
+    .shown-#{$large} {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hidden-#{$medium} {
+        display: none;
+    }
+
+    .shown-#{$small} {
+        display: none;
+    }
+
+
+    .shown-#{$large} {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .hidden-#{$large} {
+        display: none;
+    }
+
+    .shown-#{$small} {
+        display: none;
+    }
+
+    .shown-#{$medium} {
+        display: none;
+    }
+}
+
+// MEDIUM BREAKPOINT
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+
+    @include flexUtils($medium);
+
+    .col-#{$medium} {
         flex-basis: 0;
         flex-grow: 1;
         max-width: 100%;
     }
 
+    @include flexColumns($prefix, $medium, $columns);
 
-    @include createColumnMediaQuery($breakpoint) {
-        @if ($columnGutter and $columnGutter != $lastColumnGutter) {
-            .#{$containerName} {
-                width: $breakpoint;
-                padding-right: $columnGutter;
-                padding-left: $columnGutter;
-                margin-right: auto;
-                margin-left: auto;
-            }
+    .space-#{$medium} {
+        padding-bottom: 2 * $gutter;
+    }
 
-            .#{$rowName} {
-                @if not $hasFlex {
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-                margin-right: floor(-$columnGutter / 2);
-                margin-left: floor(-$columnGutter / 2);
-            }
-        } @else {
-            @if not $hasFlex {
-                .#{$rowName} {
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-            }
-
-            .#{$containerName} {
-                width: $breakpoint;
-                padding-right: $columnGutter;
-                padding-left: $columnGutter;
-                margin-right: auto;
-                margin-left: auto;
-            }
-        }
-
-        [class*="col"] {
-            padding-right: floor($columnGutter / 2);
-            padding-left: floor($columnGutter / 2);
-        }
-
-        .space#{$columnName},
-        .space {
-            padding-bottom: $columnGutter;
-        }
-
-        .nospace#{$columnName},
-        .nospace {
-            padding-bottom: 0;
-        }
-
-        @for $columnIndex from 1 through $columnNumber {
-            $width: 100%/$columnNumber*$columnIndex;
-
-            .col#{$columnName}-#{$columnIndex} {
-                flex: 0 0 $width;
-                max-width: $width;
-            }
-        }
+    .nospace-#{$medium} {
+        padding-bottom: 0;
     }
 }
 
-//Uses createSections() multiple times based on the passed list arguments.
-@mixin createGrid($list...) {
-    $lastColumnGutter: null;
-    $hasFlex: false;
 
-    @each $containerName, $rowName, $columnName, $columnNumber, $columnGutter, $breakpoint in $list {
-        @include createSections(
-            $containerName,
-            $rowName,
-            $columnName,
-            $columnNumber,
-            $columnGutter,
-            $breakpoint,
-            $lastColumnGutter,
-            $hasFlex
-        );
+//LARGE BREAKPOINT
+@media (min-width: 992px) {
+    .container {
+        width: 992px;
+    }
 
-        $lastColumnGutter: $columnGutter;
-        $hasFlex: true;
+    @include flexUtils($large);
+
+    .col-#{$large} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    
+    @include flexColumns($prefix, $large, $columns);
+
+    .space-#{$large} {
+        padding-bottom: 2 * $gutter;
+    }
+
+    .nospace-#{$large} {
+        padding-bottom: 0;
     }
 }
-
-@include createGrid(
-    ($containerName, $rowName, "-small", $columnCount, $defaultPadding, null),
-    ($containerName, $rowName, "-medium", $columnCount, $defaultPadding, $columnMedium),
-    ($containerName, $rowName, "-large", $columnCount, $defaultPadding, $columnLarge)
-);
