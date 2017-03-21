@@ -10,7 +10,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var files = [
     'style/normalize.scss',
     'style/typography.scss',
-    'style/grid.scss'
+    'style/grid.scss',
+    'style/form.scss',
+    'style/icons.scss'
 ];
 
 gulp.task('style', function () {

@@ -1,0 +1,102 @@
+@import "variables";
+
+input[type="button"],
+input[type="checkbox"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="file"],
+input[type="hidden"],
+input[type="image"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="radio"],
+input[type="range"],
+input[type="reset"],
+input[type="search"],
+input[type="submit"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,
+select {
+    outline: 0 none;
+    border: 0;
+    background-color: transparent;
+
+    &:focus {
+        outline: 0 none;
+    }
+}
+
+input[type="button"],
+input[type="submit"] {
+    background-image: none;
+
+    &:active {
+        outline: 0 none;
+    }
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: $defaultInputHeight;
+    border: 1px solid $greyColor1;
+    border-bottom-color: $greyColor2;
+    border-radius: $defaultBorderRadius;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    padding: $defaultPadding ($defaultPadding*1.5);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+        border-color: $orangeColor1;
+        box-shadow: 0 0 6px rgba($orangeColor1, 0.6);
+    }
+}
+
+.input-group {
+    position: relative;
+
+    [class*="icon-"] {
+        position: absolute;
+        top: 0;
+        left: $defaultPadding;        
+
+        &:before {
+            line-height: $defaultInputHeight;
+            font-size: floor($defaultFontSize * 1.45);
+            color: darken($greyColor2, 20%);
+            transition: color 0.2s ease;
+        }
+    }
+
+    input:focus + [class*="icon-"]:before,
+    select:focus + [class*="icon-"]:before {
+        color: $orangeColor1;
+    }
+
+    select,
+    input {
+        padding-left: floor($defaultFontSize * 1.4) + floor($defaultPadding * 1.9);
+    }
+}

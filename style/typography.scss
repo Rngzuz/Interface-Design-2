@@ -1,10 +1,16 @@
+@import "variables.scss";
+
+html {
+    font-size: $defaultFontSize;
+}
+
 body {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 1rem;
     font-weight: normal;
-    line-height: 1.4;
-    color: #212121;
-    background-color: #fff;
+    line-height: $defaultLineHeight;
+    color: $defaultColor;
+    background-color: #FFF;
 }
 
 .bg {

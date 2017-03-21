@@ -1,0 +1,21 @@
+$columnCount: 12;
+
+$defaultBorderRadius: 4px;
+$defaultColor: #808080;
+
+$defaultFontSize: 14px;
+$defaultLineHeight: 1.4;
+
+$defaultPadding: $defaultFontSize;
+
+$greyColor1: #CCC;
+$greyColor2: #A6A6A6;
+$orangeColor1: #bf691d;
+
+$containerName: "grid";
+$rowName: "row";
+
+$columnMedium: 768px;
+$columnLarge: 992px;
+
+$defaultInputHeight: floor($defaultLineHeight * $defaultFontSize) + floor($defaultPadding * 2) - 1px;

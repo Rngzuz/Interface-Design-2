@@ -5,23 +5,60 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="space-small"></div>
 
         <div class="grid">
-            <div class="row">
-                <div class="col-small-12 col-medium-4 space">
-                    <div class="bg">asfd</div>
+            <div class="row space-small">      
+                <div class="col-small-12 col-medium-8 space-small">
+                    <div class="input-group">
+                        <input type="text" placeholder="From city or airport">
+                        <div class="icon-plane"></div>
+                    </div>
                 </div>
-                <div class="col-small-12 col-medium-6 space">
-                    <div class="bg"></div>
+
+                <div class="col-small-12 col-medium-4 space-small">
+                    <div class="input-group">
+                        <input type="date" placeholder="From date">
+                        <div class="icon-calendar-empty"></div>
+                    </div>
                 </div>
-                <div class="col-small-12 col-medium-2 space">
-                    <div class="bg"></div>
+
+                <div class="col-small-12 col-medium-8 space-small nospace-medium">
+                    <div class="input-group">
+                        <input type="text" placeholder="To city, airport or region">
+                        <div class="icon-plane"></div>
+                    </div>
+                </div>
+
+                <div class="col-small-12 col-medium-4">
+                    <div class="input-group">
+                        <input type="date" placeholder="To date">
+                        <div class="icon-calendar-empty"></div>
+                    </div>
                 </div>
             </div>
 
+            <div class="row space-small">
 
+                <div class="col-small-6 col-medium-4 space-small nospace-medium">
+                    <div class="input-group">
+                        <select>
+                            <option>One-way trip</option>
+                            <option>Return trip</option>
+                        </select>
+                        <div class="icon-sync"></div>
+                    </div>
+                </div>
+                <div class="col-small-6 col-medium-4 space-small nospace-medium">
+                    <div class="input-group">
+                        <input type="text" placeholder="From city or airport">
+                        <div class="icon-plane"></div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-
 
     </body>
 </html>
