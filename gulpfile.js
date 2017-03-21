@@ -7,7 +7,11 @@ var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 
 //string|string[] of path(s) to file(s)
-var files = 'style/*.scss';
+var files = [
+    'style/normalize.scss',
+    'style/typography.scss',
+    'style/grid.scss'
+];
 
 gulp.task('style', function () {
     pump([
