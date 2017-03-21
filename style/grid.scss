@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 //Enclose content in a media query if $containerWidth is greater than 0 and not null.
 @mixin createColumnMediaQuery($containerWidth) {
     @if $containerWidth == 0 or $containerWidth == null {
@@ -11,10 +17,16 @@
 
 //Creates the grid container, row and columns based on the parameters.
 @mixin createSections($containerName, $rowName, $columnName, $columnNumber, $columnGutter, $breakpoint, $lastColumnGutter, $hasFlex) {
+    .col {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
     @include createColumnMediaQuery($breakpoint) {
         @if ($columnGutter and $columnGutter != $lastColumnGutter) {
             .#{$containerName} {
-                width: if($breakpoint, $breakpoint - (2 * $columnGutter), $breakpoint);
+                width: $breakpoint;
                 padding-right: $columnGutter;
                 padding-left: $columnGutter;
                 margin-right: auto;
@@ -24,24 +36,21 @@
             .#{$rowName} {
                 @if not $hasFlex {
                     display: flex;
+                    flex-wrap: wrap;
                 }
                 margin-right: (-$columnGutter);
                 margin-left: (-$columnGutter);
-            }
-
-            [class^="col #{$columnName}"] {
-                padding-right: $columnGutter;
-                padding-left: $columnGutter;
             }
         } @else {
             @if not $hasFlex {
                 .#{$rowName} {
                     display: flex;
+                    flex-wrap: wrap;
                 }
             }
 
             .#{$containerName} {
-                width: if($breakpoint, $breakpoint - (2 * $columnGutter), $breakpoint);
+                width: $breakpoint;
                 padding-right: $columnGutter;
                 padding-left: $columnGutter;
                 margin-right: auto;
@@ -49,23 +58,25 @@
             }
         }
 
-        .col.#{$columnName}.space {
+        [class^="col-"] {
+            padding-right: $columnGutter;
+            padding-left: $columnGutter;
+        }
+
+        .space-#{$columnName},
+        .space {
             padding-bottom: 2*$columnGutter;
         }
 
-        .col.#{$columnName}.nospace {
+        .nospace-#{$columnName},
+        .nospace {
             padding-bottom: 0;
-        }
-
-        .col.#{$columnName} {
-            flex: 1 1 auto;
-            max-width: 100%;
         }
 
         @for $columnIndex from 1 through $columnNumber {
             $width: 100%/$columnNumber*$columnIndex;
 
-            .col.#{$columnName}-#{$columnIndex} {
+            .col-#{$columnName}-#{$columnIndex} {
                 flex: 0 0 $width;
                 max-width: $width;
             }
