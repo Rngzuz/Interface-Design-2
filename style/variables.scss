@@ -3,18 +3,25 @@ $prefix: "col";
 $small: "small";
 $medium: "medium";
 $large: "large";
+$xlarge: "xlarge";
 $columns: 12;
 $gutter: 7px;
+
+$breakpoint1: 544px;
+$breakpoint2: 768px;
+$breakpoint3: 992px;
 
 //Other
 $fontSize: 14px;
 $lineHeight: 1.4;
-$radius: 4px;
+$radius: 2px;
 
 $grey1: #808080;
-$grey2: #CCC;
+$grey2: #CCCCCC;
 $grey3: #A6A6A6;
-$orange1: #bf691d;
+$orange1: #333333;
+$black: #000000;
+$white: #FFFFFF;
 
 $padding: $fontSize;
 

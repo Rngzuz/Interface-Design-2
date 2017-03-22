@@ -7,11 +7,31 @@
 </head>
 
 <body>
-    <div class="space-small"></div>
 
-    <div class="container">
-        <div class="row x2-space-medium">
-            <div class="col-small-12 col-medium-9 space-small nospace-medium">
+    <header class="container">
+        <div class="row">
+            <div class="col-fit-small shown-small">
+                <button id="toggle" class="">Toggle</button>
+            </div>
+            <nav id="nav" class="col-small-12 hidden-small">
+                <ul class="row">
+                    <li class="col-small-12 col-fit-medium text-nowrap">
+                        <a href="#">Link 1</a>
+                    </li>
+                    <li class="col-small-12 col-fit-medium text-nowrap">
+                        <a href="#">Link 2</a>
+                    </li>
+                    <li class="col-small-12 col-fit-medium text-nowrap">
+                        <a href="#">Link 3</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row justify-end-small x2-space-large">
+            <div class="col-small-12 col-large-9 space-small nospace-large">
                 <label for="fromairport">From city or airport</label>
                 <div class="input-group">
                     <input id="fromairport" type="text" placeholder="Type to search...">
@@ -19,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="col-small">
+            <div class="col-small-12 col-large">
                 <label for="fromdate">From date</label>
                 <div class="input-group">
                     <input id="fromdate" type="text" placeholder="YYYY-MM-DD">
@@ -28,10 +48,10 @@
             </div>
         </div>
 
-        <hr class="shown-small">
+        <hr class="hidden-large hidden-xlarge">
 
-        <div class="row x2-space-medium">
-            <div class="col-small-12 col-medium-9 space-small nospace-medium">
+        <div class="row justify-end-small x2-space-large">
+            <div class="col-small-12 col-large-9 space-small nospace-large">
                 <label for="toairport">To city, airport or region</label>
                 <div class="input-group">
                     <input id="toairport" type="text" placeholder="Type to search...">
@@ -39,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="col-small">
+            <div class="col-small-12 col-large">
                 <label for="todate">To date</label>
                 <div class="input-group">
                     <input id="todate" type="text" placeholder="YYYY-MM-DD">
@@ -48,18 +68,10 @@
             </div>
         </div>
 
-        <hr class="shown-small">
+        <hr class="hidden-large hidden-xlarge">
 
         <div class="row space-small">
-            <div class="col-fit-small space-small nospace-medium">
-                <label for="passengers">Passengers</label>
-                <div class="input-group">
-                    <input id="passengers" type="text" value="1">
-                    <div class="icon-users2"></div>
-                </div>
-            </div>
-
-            <div class="col-small space-small nospace-medium">
+            <div class="col-small-12 col-medium space-small nospace-medium">
                 <label for="trip">Trip type</label>
                 <div class="input-group">
                     <select id="trip">
@@ -70,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="col-small-12 col-medium">
+            <div class="col-small-12 col-medium space-small nospace-medium">
                 <label for="class">Ticket class</label>
                 <div class="input-group">
                     <select id="class">
@@ -81,9 +93,26 @@
                     <div class="icon-ticket"></div>
                 </div>
             </div>
-        </div>
-    </div>
 
+            <!--
+            <div class="col-small-12 col-medium-3">
+                <label for="passengers">Passengers</label>
+                <div class="input-group">
+                    <input id="passengers" type="text" value="1">
+                    <div class="icon-users2"></div>
+                </div>
+            </div>
+            -->
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            document.getElementById('toggle').addEventListener('click', function () {
+                document.getElementById('nav').classList.toggle('hidden-small');
+            });
+        })();
+    </script>
 </body>
 
 </html>

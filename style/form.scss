@@ -28,6 +28,7 @@ select {
     border: 0;
     background-color: transparent;
     line-height: 1;
+    background-color: $white;
 
     &:focus {
         outline: 0 none;
@@ -64,20 +65,16 @@ select {
     height: $inputHeight;
     border: 1px solid $grey2;
     border-bottom-color: $grey3;
-    border-radius: $radius;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    padding: $padding ($padding*1.5);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    padding: $padding;
 
     &:focus {
-        border-color: $orange1;
-        box-shadow: 0 0 6px rgba($orange1, 0.6), inset 0 1px 2px rgba(0,0,0,0.2);
+        border-color: $black;
     }
 }
 
 label {
-    display: block;
-    padding: 0 $gutter $gutter $gutter;
+    display: inline-block;
+    padding-bottom: $gutter;
     line-height: 1;
 }
 
@@ -91,24 +88,29 @@ label {
     [class*="icon-"] {
         position: absolute;
         top: 0;
-        left: floor($padding / 2) + 1px;
-        padding-right: floor($padding / 2);
+        left: $padding;
+        padding-right: $padding - 2px;
+        border-right: 1px solid $grey2;
 
         &:before {
             line-height: $inputHeight;
-            font-size: floor($fontSize * 1.5);
-            color: darken($grey3, 20%);
-            transition: color 0.2s ease;
+            font-size: floor($padding * 1.5);
+            color: $grey3;
         }
+    }
+
+    input:focus + [class*="icon-"],
+    select:focus + [class*="icon-"] {
+        border-right-color: $black;
     }
 
     input:focus + [class*="icon-"]:before,
     select:focus + [class*="icon-"]:before {
-        color: $orange1;
+        color: $black;
     }
 
     select,
     input {
-        padding-left: floor($fontSize * 1.5) + $padding;
+        padding-left: floor($fontSize * 1.5) + (3 * $padding);
     }
 }

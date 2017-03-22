@@ -5,6 +5,10 @@
     @for $index from 1 through $columns {
         $width: 100%/$columns*$index;
 
+        .order-#{$name}-#{$index} {
+            order: #{$index};
+        }
+
         .#{$prefix}-#{$name}-#{$index} {
             flex: 0 0 $width;
             max-width: $width;
@@ -18,7 +22,7 @@
     $flexProperties: (
         direction: (
             flex-direction: (
-                //row: "row",
+                row: "row",
                 row-reverse: "row-reverse",
                 col: "column",
                 col-reverse: "column-reverse"
@@ -27,13 +31,13 @@
         wrap: (
             flex-wrap: (
                 nowrap: "nowrap",
-                //wrap: "wrap", //This is not the default, but .row has flex-wrap: wrap
+                wrap: "wrap", //This is not the default, but .row has flex-wrap: wrap
                 reverse: "wrap-reverse"
             )
         ),
         justify: (
             justify-content: (
-                //start: "flex-start",
+                start: "flex-start",
                 end: "flex-end",
                 center: "center",
                 between: "space-between",
@@ -42,7 +46,7 @@
         ),
         self: (
             align-self: (
-                //auto: "auto",
+                auto: "auto",
                 start: "flex-start",
                 end: "flex-end",
                 center: "center",
@@ -56,7 +60,7 @@
                 end: "flex-end",
                 center: "center",
                 baseline: "baseline",
-                //stretch: "stretch"
+                stretch: "stretch"
             )
         ),
         content: (
@@ -66,7 +70,7 @@
                 center: "center",
                 between: "space-between",
                 around: "space-around",
-                //stretch: "stretch"
+                stretch: "stretch"
             )
         )
     );
@@ -108,10 +112,17 @@
     .nospace-#{$name} {
         padding-bottom: 0;
     }
+
+    .nogutter-#{$name} {
+        padding: 0;
+    }
+    .row.nogutter-#{$name} > [class*="#{$prefix}"] {
+        padding: 0;
+    }
 }
 
 .container {
-    padding: 0 (2 * $gutter);
+    padding: (2 * $gutter);
     margin-right: auto;
     margin-left: auto;
 }
@@ -120,6 +131,11 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 (-$gutter);
+}
+
+ul.row {
+    list-style: none;
+    padding: 0;
 }
 
 [class*="#{$prefix}-"] {
@@ -132,7 +148,7 @@
 @include flexColumns($prefix, $small, $columns);
 @include gridSpace($small);
 
-@media (max-width: 767px) {
+@media (max-width: $breakpoint1 - 1px) {
     .hidden-#{$small} {
         display: none;
     }
@@ -144,12 +160,16 @@
     .shown-#{$large} {
         display: none;
     }
+
+    .shown-#{$xlarge} {
+        display: none;
+    }
 }
 
 // MEDIUM BREAKPOINT
-@media (min-width: 768px) {
+@media (min-width: $breakpoint1) {
     .container {
-        width: 768px;
+        width: $breakpoint1;
     }
 
     @include flexUtils($medium);
@@ -158,7 +178,7 @@
     @include gridSpace($medium);
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: $breakpoint1) and (max-width: $breakpoint2 - 1px) {
     .hidden-#{$medium} {
         display: none;
     }
@@ -167,14 +187,28 @@
         display: none;
     }
 
-
     .shown-#{$large} {
+        display: none;
+    }
+
+    .shown-#{$xlarge} {
         display: none;
     }
 }
 
 //LARGE BREAKPOINT
-@media (min-width: 992px) {
+@media (min-width: $breakpoint2) {
+    .container {
+        width: $breakpoint2;
+    }
+
+    @include flexUtils($large);
+    @include flexSpecialColumns($large);
+    @include flexColumns($prefix, $large, $columns);
+    @include gridSpace($large);
+}
+
+@media (min-width: $breakpoint2) and (max-width: $breakpoint3 - 1px) {
     .hidden-#{$large} {
         display: none;
     }
@@ -187,12 +221,35 @@
         display: none;
     }
 
-    .container {
-        width: 992px;
+    .shown-#{$xlarge} {
+        display: none;
+    }
+}
+
+//XLARGE BREAKPOINT
+@media (min-width: $breakpoint3) {
+    .hidden-#{$xlarge} {
+        display: none;
     }
 
-    @include flexUtils($large);
-    @include flexSpecialColumns($large);
-    @include flexColumns($prefix, $large, $columns);
-    @include gridSpace($large);
+    .shown-#{$small} {
+        display: none;
+    }
+
+    .shown-#{$medium} {
+        display: none;
+    }
+
+    .shown-#{$large} {
+        display: none;
+    }
+
+    .container {
+        width: $breakpoint3;
+    }
+
+    @include flexUtils($xlarge);
+    @include flexSpecialColumns($xlarge);
+    @include flexColumns($prefix, $xlarge, $columns);
+    @include gridSpace($xlarge);
 }

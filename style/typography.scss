@@ -18,3 +18,8 @@ hr {
     border-bottom: 1px solid $grey2;
     margin: (2 * $padding) 0;
 }
+
+.text-nowrap {
+    white-space: nowrap;
+    overflow: visible;
+}
