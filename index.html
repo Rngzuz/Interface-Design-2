@@ -10,17 +10,19 @@
     <div class="space-small"></div>
 
     <div class="container">
-        <div class="row space-medium">
-            <div class="col-small-12 col-medium-7 space-small nospace-medium">
+        <div class="row x2-space-medium">
+            <div class="col-small-12 col-medium-9 space-small nospace-medium">
+                <label for="fromairport">From city or airport</label>
                 <div class="input-group">
-                    <input type="text" placeholder="From city or airport">
+                    <input id="fromairport" type="text" placeholder="Type to search...">
                     <div class="icon-plane"></div>
                 </div>
             </div>
 
-            <div class="col-small-12 col-medium-5">
+            <div class="col-small">
+                <label for="fromdate">From date</label>
                 <div class="input-group">
-                    <input type="date" placeholder="From date">
+                    <input id="fromdate" type="text" placeholder="YYYY-MM-DD">
                     <div class="icon-calendar-empty"></div>
                 </div>
             </div>
@@ -28,17 +30,19 @@
 
         <hr class="shown-small">
 
-        <div class="row space-medium">
-            <div class="col-small-12 col-medium-7 space-small">
+        <div class="row x2-space-medium">
+            <div class="col-small-12 col-medium-9 space-small nospace-medium">
+                <label for="toairport">To city, airport or region</label>
                 <div class="input-group">
-                    <input type="text" placeholder="To city, airport or region">
+                    <input id="toairport" type="text" placeholder="Type to search...">
                     <div class="icon-plane"></div>
                 </div>
             </div>
 
-            <div class="col-small-12 col-medium-5">
+            <div class="col-small">
+                <label for="todate">To date</label>
                 <div class="input-group">
-                    <input type="date" placeholder="To date">
+                    <input id="todate" type="text" placeholder="YYYY-MM-DD">
                     <div class="icon-calendar-empty"></div>
                 </div>
             </div>
@@ -47,15 +51,15 @@
         <hr class="shown-small">
 
         <div class="row space-small">
-            <div class="col-small-12 col-medium-2 space-small nospace-medium">
+            <div class="col-fit-small space-small nospace-medium">
                 <label for="passengers">Passengers</label>
                 <div class="input-group">
-                    <input id="passengers" type="number" value="1">
+                    <input id="passengers" type="text" value="1">
                     <div class="icon-users2"></div>
                 </div>
             </div>
 
-            <div class="col-small-12 col-medium-5 space-small nospace-medium">
+            <div class="col-small space-small nospace-medium">
                 <label for="trip">Trip type</label>
                 <div class="input-group">
                     <select id="trip">
@@ -66,7 +70,7 @@
                 </div>
             </div>
 
-            <div class="col-small-12 col-medium-5">
+            <div class="col-small-12 col-medium">
                 <label for="class">Ticket class</label>
                 <div class="input-group">
                     <select id="class">
@@ -79,6 +83,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

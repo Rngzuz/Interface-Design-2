@@ -14,26 +14,104 @@
 
 //Make flex utilities e.g. centering children
 @mixin flexUtils($name) {
-    $properties: (
-        flex-direction: ("row", "row-reverse", "column", "column-reverse"),
-        flex-wrap: ("nowrap", "wrap", "wrap-reverse"),
-        justify-content: ("flex-start", "flex-end", "center", "space-between", "space-around"),
-        align-self: ("auto", "flex-start", "flex-end", "center", "baseline", "stretch"),
-        align-items: ("flex-start", "flex-end", "center", "baseline", "stretch"),
-        align-content: ("flex-start", "flex-end", "center", "space-between", "space-around", "stretch")
+    //Properties which is commented out is the default values
+    $flexProperties: (
+        direction: (
+            flex-direction: (
+                //row: "row",
+                row-reverse: "row-reverse",
+                col: "column",
+                col-reverse: "column-reverse"
+            )
+        ),
+        wrap: (
+            flex-wrap: (
+                nowrap: "nowrap",
+                //wrap: "wrap", //This is not the default, but .row has flex-wrap: wrap
+                reverse: "wrap-reverse"
+            )
+        ),
+        justify: (
+            justify-content: (
+                //start: "flex-start",
+                end: "flex-end",
+                center: "center",
+                between: "space-between",
+                around: "space-around"
+            )
+        ),
+        self: (
+            align-self: (
+                //auto: "auto",
+                start: "flex-start",
+                end: "flex-end",
+                center: "center",
+                baseline: "baseline",
+                stretch: "stretch"
+            )
+        ),
+        items: (
+            align-items: (
+                start: "flex-start",
+                end: "flex-end",
+                center: "center",
+                baseline: "baseline",
+                //stretch: "stretch"
+            )
+        ),
+        content: (
+            align-content: (
+                start: "flex-start",
+                end: "flex-end",
+                center: "center",
+                between: "space-between",
+                around: "space-around",
+                //stretch: "stretch"
+            )
+        )
     );
 
-    @each $key, $list in $properties {
-        @each $value in $list {
-            .#{$key}-#{$value}-#{$name} {
-                #{$key}: #{$value};
+    @each $className, $propertyMap in $flexProperties {
+        @each $propertyName, $propertyValues in $propertyMap {
+            @each $key, $value in $propertyValues {
+                .#{$className}-#{$key}-#{$name} {
+                    #{$propertyName}: #{$value};
+                }
             }
         }
     }
 }
 
+@mixin flexSpecialColumns($name) {
+    .col-#{$name} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .col-fit-#{$name} {
+        flex-basis: 0;
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+}
+
+@mixin gridSpace($name) {
+    .space-#{$name} {
+        padding-bottom: 2 * $gutter;
+    }
+
+    .x2-space-#{$name} {
+        padding-bottom: 2 * (2 * $gutter);
+    }
+
+    .nospace-#{$name} {
+        padding-bottom: 0;
+    }
+}
+
 .container {
-    padding: 0 $gutter;
+    padding: 0 (2 * $gutter);
     margin-right: auto;
     margin-left: auto;
 }
@@ -50,22 +128,9 @@
 
 //SMALL BREAKPOINT
 @include flexUtils($small);
-
-.col-#{$small} {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-}
-
+@include flexSpecialColumns($small);
 @include flexColumns($prefix, $small, $columns);
-
-.space-#{$small} {
-    padding-bottom: 2 * $gutter;
-}
-
-.nospace-#{$small} {
-    padding-bottom: 0;
-}
+@include gridSpace($small);
 
 @media (max-width: 767px) {
     .hidden-#{$small} {
@@ -79,6 +144,18 @@
     .shown-#{$large} {
         display: none;
     }
+}
+
+// MEDIUM BREAKPOINT
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+
+    @include flexUtils($medium);
+    @include flexSpecialColumns($medium);
+    @include flexColumns($prefix, $medium, $columns);
+    @include gridSpace($medium);
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -96,6 +173,7 @@
     }
 }
 
+//LARGE BREAKPOINT
 @media (min-width: 992px) {
     .hidden-#{$large} {
         display: none;
@@ -108,55 +186,13 @@
     .shown-#{$medium} {
         display: none;
     }
-}
 
-// MEDIUM BREAKPOINT
-@media (min-width: 768px) {
-    .container {
-        width: 768px;
-    }
-
-    @include flexUtils($medium);
-
-    .col-#{$medium} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-    }
-
-    @include flexColumns($prefix, $medium, $columns);
-
-    .space-#{$medium} {
-        padding-bottom: 2 * $gutter;
-    }
-
-    .nospace-#{$medium} {
-        padding-bottom: 0;
-    }
-}
-
-
-//LARGE BREAKPOINT
-@media (min-width: 992px) {
     .container {
         width: 992px;
     }
 
     @include flexUtils($large);
-
-    .col-#{$large} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-    }
-    
+    @include flexSpecialColumns($large);
     @include flexColumns($prefix, $large, $columns);
-
-    .space-#{$large} {
-        padding-bottom: 2 * $gutter;
-    }
-
-    .nospace-#{$large} {
-        padding-bottom: 0;
-    }
+    @include gridSpace($large);
 }
