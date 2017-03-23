@@ -10,18 +10,18 @@
 
     <header class="container">
         <div class="row">
-            <div class="col-fit-small shown-small">
+            <div class="col-small-shrink shown-small">
                 <button id="toggle" class="">Toggle</button>
             </div>
             <nav id="nav" class="col-small-12 hidden-small">
                 <ul class="row">
-                    <li class="col-small-12 col-fit-medium text-nowrap">
+                    <li class="col-small-12 col-medium-shrink text-nowrap">
                         <a href="#">Link 1</a>
                     </li>
-                    <li class="col-small-12 col-fit-medium text-nowrap">
+                    <li class="col-small-12 col-medium-shrink text-nowrap">
                         <a href="#">Link 2</a>
                     </li>
-                    <li class="col-small-12 col-fit-medium text-nowrap">
+                    <li class="col-small-12 col-medium-shrink text-nowrap">
                         <a href="#">Link 3</a>
                     </li>
                 </ul>
@@ -30,7 +30,7 @@
     </header>
 
     <main class="container">
-        <div class="row justify-end-small x2-space-large">
+        <div class="row flex-justify-end-small x2-space-large">
             <div class="col-small-12 col-large-9 space-small nospace-large">
                 <label for="fromairport">From city or airport</label>
                 <div class="input-group">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="col-small-12 col-large">
+            <div class="col-small-12 col-large-grow">
                 <label for="fromdate">From date</label>
                 <div class="input-group">
                     <input id="fromdate" type="text" placeholder="YYYY-MM-DD">
@@ -50,7 +50,7 @@
 
         <hr class="hidden-large hidden-xlarge">
 
-        <div class="row justify-end-small x2-space-large">
+        <div class="row flex-justify-end-small x2-space-large">
             <div class="col-small-12 col-large-9 space-small nospace-large">
                 <label for="toairport">To city, airport or region</label>
                 <div class="input-group">
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="col-small-12 col-large">
+            <div class="col-small-12 col-large-grow">
                 <label for="todate">To date</label>
                 <div class="input-group">
                     <input id="todate" type="text" placeholder="YYYY-MM-DD">
@@ -71,7 +71,15 @@
         <hr class="hidden-large hidden-xlarge">
 
         <div class="row space-small">
-            <div class="col-small-12 col-medium space-small nospace-medium">
+            <div class="col-small-shrink">
+                <label for="passengers">Passengers</label>
+                <div class="input-group" style="width: 96px;">
+                    <input id="passengers" class="text-center" type="text" minlength="1" maxlength="2" value="1">
+                    <div class="icon-users2"></div>
+                </div>
+            </div>
+
+            <div class="col-small-grow space-small nospace-medium">
                 <label for="trip">Trip type</label>
                 <div class="input-group">
                     <select id="trip">
@@ -82,7 +90,9 @@
                 </div>
             </div>
 
-            <div class="col-small-12 col-medium space-small nospace-medium">
+
+
+            <div class="col-small-12 col-medium-grow  space-small nospace-medium">
                 <label for="class">Ticket class</label>
                 <div class="input-group">
                     <select id="class">
@@ -93,16 +103,6 @@
                     <div class="icon-ticket"></div>
                 </div>
             </div>
-
-            <!--
-            <div class="col-small-12 col-medium-3">
-                <label for="passengers">Passengers</label>
-                <div class="input-group">
-                    <input id="passengers" type="text" value="1">
-                    <div class="icon-users2"></div>
-                </div>
-            </div>
-            -->
         </div>
     </main>
 

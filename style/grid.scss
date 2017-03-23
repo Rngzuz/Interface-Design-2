@@ -1,41 +1,68 @@
 @import "variables.scss";
 
+@function createName($prefix: null, $name: null, $index: null) {
+        @return "." + 
+                if($prefix, $prefix, "") + 
+                if($name, "-" + $name, "") + 
+                if($index, "-" + $index, "");
+}
+
 //Make specific sized flex columns
-@mixin flexColumns($prefix, $name, $columns) {
+@mixin flexColumns($columns, $prefix: null, $name: null, $gutter: null) {
+    $colClasses: (
+        createName($prefix, $name + "-grow"),
+        createName($prefix, $name + "-shrink")
+    );
+
+    #{nth($colClasses, 1)} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    #{nth($colClasses, 2)} {
+        flex-basis: 0;
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+
     @for $index from 1 through $columns {
         $width: 100%/$columns*$index;
+        $colClass: createName($prefix, $name, $index);
 
-        .order-#{$name}-#{$index} {
-            order: #{$index};
-        }
-
-        .#{$prefix}-#{$name}-#{$index} {
+        #{$colClass} {
             flex: 0 0 $width;
             max-width: $width;
+        }
+
+        $colClasses: append($colClasses, $colClass, "comma");
+    }
+
+    @if $gutter {
+        #{$colClasses} {
+            padding: 0 $gutter;
         }
     }
 }
 
 //Make flex utilities e.g. centering children
-@mixin flexUtils($name) {
+@mixin flexUtils($name: null) {
     //Properties which is commented out is the default values
     $flexProperties: (
-        direction: (
+        flex: (
             flex-direction: (
                 row: "row",
                 row-reverse: "row-reverse",
                 col: "column",
                 col-reverse: "column-reverse"
-            )
-        ),
-        wrap: (
+            ),
             flex-wrap: (
                 nowrap: "nowrap",
                 wrap: "wrap", //This is not the default, but .row has flex-wrap: wrap
-                reverse: "wrap-reverse"
+                wrap-reverse: "wrap-reverse"
             )
         ),
-        justify: (
+        flex-justify: (
             justify-content: (
                 start: "flex-start",
                 end: "flex-end",
@@ -44,7 +71,7 @@
                 around: "space-around"
             )
         ),
-        self: (
+        flex-self: (
             align-self: (
                 auto: "auto",
                 start: "flex-start",
@@ -54,7 +81,7 @@
                 stretch: "stretch"
             )
         ),
-        items: (
+        flex-items: (
             align-items: (
                 start: "flex-start",
                 end: "flex-end",
@@ -63,7 +90,7 @@
                 stretch: "stretch"
             )
         ),
-        content: (
+        flex-content: (
             align-content: (
                 start: "flex-start",
                 end: "flex-end",
@@ -78,25 +105,13 @@
     @each $className, $propertyMap in $flexProperties {
         @each $propertyName, $propertyValues in $propertyMap {
             @each $key, $value in $propertyValues {
-                .#{$className}-#{$key}-#{$name} {
+                $cssClass: createName($className, $key, $name);
+
+                #{$cssClass} {
                     #{$propertyName}: #{$value};
                 }
             }
         }
-    }
-}
-
-@mixin flexSpecialColumns($name) {
-    .col-#{$name} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-    }
-
-    .col-fit-#{$name} {
-        flex-basis: 0;
-        flex-grow: 0;
-        flex-shrink: 1;
     }
 }
 
@@ -122,6 +137,7 @@
 }
 
 .container {
+    min-width: $breakpoint0;
     padding: (2 * $gutter);
     margin-right: auto;
     margin-left: auto;
@@ -138,14 +154,9 @@ ul.row {
     padding: 0;
 }
 
-[class*="#{$prefix}-"] {
-    padding: 0 $gutter;
-}
-
 //SMALL BREAKPOINT
 @include flexUtils($small);
-@include flexSpecialColumns($small);
-@include flexColumns($prefix, $small, $columns);
+@include flexColumns($columns, $prefix, $small, $gutter);
 @include gridSpace($small);
 
 @media (max-width: $breakpoint1 - 1px) {
@@ -173,8 +184,7 @@ ul.row {
     }
 
     @include flexUtils($medium);
-    @include flexSpecialColumns($medium);
-    @include flexColumns($prefix, $medium, $columns);
+    @include flexColumns($columns, $prefix, $medium, $gutter);
     @include gridSpace($medium);
 }
 
@@ -203,8 +213,7 @@ ul.row {
     }
 
     @include flexUtils($large);
-    @include flexSpecialColumns($large);
-    @include flexColumns($prefix, $large, $columns);
+    @include flexColumns($columns, $prefix, $large, $gutter);
     @include gridSpace($large);
 }
 
@@ -249,7 +258,6 @@ ul.row {
     }
 
     @include flexUtils($xlarge);
-    @include flexSpecialColumns($xlarge);
-    @include flexColumns($prefix, $xlarge, $columns);
+    @include flexColumns($columns, $prefix, $xlarge, $gutter);
     @include gridSpace($xlarge);
 }

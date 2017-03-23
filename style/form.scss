@@ -94,7 +94,7 @@ label {
 
         &:before {
             line-height: $inputHeight;
-            font-size: floor($padding * 1.5);
+            font-size: $iconSize1;
             color: $grey3;
         }
     }
@@ -111,6 +111,6 @@ label {
 
     select,
     input {
-        padding-left: floor($fontSize * 1.5) + (3 * $padding);
+        padding-left: $iconSize1 - 2px + (3 * $padding);
     }
 }
