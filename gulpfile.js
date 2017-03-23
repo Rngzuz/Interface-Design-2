@@ -11,6 +11,7 @@ var files = [
     'style/normalize.scss',
     'style/typography.scss',
     'style/grid.scss',
+    'style/general.scss',
     'style/form.scss',
     'style/icons.scss'
 ];

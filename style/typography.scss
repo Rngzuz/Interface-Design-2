@@ -9,7 +9,7 @@ body {
     font-size: 1rem;
     font-weight: normal;
     line-height: $lineHeight;
-    color: $grey1;
+    color: lighten($black, 10%);
     background-color: #FFF;
 }
 

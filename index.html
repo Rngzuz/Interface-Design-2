@@ -6,30 +6,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="page">
 
-    <header class="container">
-        <div class="row">
-            <div class="col-small-shrink shown-small">
-                <button id="toggle" class="">Toggle</button>
+    <header id="header">
+        <section class="container">
+            <div class="row">
+                <div class="col-small-12">
+                    header content
+                </div>
             </div>
-            <nav id="nav" class="col-small-12 hidden-small">
-                <ul class="row">
-                    <li class="col-small-12 col-medium-shrink text-nowrap">
-                        <a href="#">Link 1</a>
-                    </li>
-                    <li class="col-small-12 col-medium-shrink text-nowrap">
-                        <a href="#">Link 2</a>
-                    </li>
-                    <li class="col-small-12 col-medium-shrink text-nowrap">
-                        <a href="#">Link 3</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        </section>
     </header>
 
-    <main class="container">
+    <main id="main" class="container">
+
         <div class="row flex-justify-end-small x2-space-large">
             <div class="col-small-12 col-large-9 space-small nospace-large">
                 <label for="fromairport">From city or airport</label>
@@ -90,8 +80,6 @@
                 </div>
             </div>
 
-
-
             <div class="col-small-12 col-medium-grow  space-small nospace-medium">
                 <label for="class">Ticket class</label>
                 <div class="input-group">
@@ -104,15 +92,46 @@
                 </div>
             </div>
         </div>
+
+        <div class="row flex-justify-center-small">
+            <a href="#" class="button">Search</a>
+        </div>
     </main>
 
-    <script>
-        (function () {
-            document.getElementById('toggle').addEventListener('click', function () {
-                document.getElementById('nav').classList.toggle('hidden-small');
-            });
-        })();
-    </script>
+    <!-- Footer -->
+    <footer id="footer">
+        <section class="container">
+            <div class="row flex-justify-center-small">
+                <div class="col-small-12 col-medium-grow">
+                    <b>Bold text</b>
+                    <ul>
+                        <li>Unordered item 1</li>
+                        <li>Unordered item 2</li>
+                        <li>Unordered item 3</li>
+                        <li>Unordered item 4</li>
+                    </ul>
+                </div>
+                <div class="col-small-12 col-medium-grow">
+                    <b>Bold text</b>
+                    <ul>
+                        <li>Unordered item 1</li>
+                        <li>Unordered item 2</li>
+                        <li>Unordered item 3</li>
+                        <li>Unordered item 4</li>
+                    </ul>
+                </div>
+                <div class="col-small-12 col-medium-grow">
+                    <b>Bold text</b>
+                    <ul>
+                        <li>Unordered item 1</li>
+                        <li>Unordered item 2</li>
+                        <li>Unordered item 3</li>
+                        <li>Unordered item 4</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </footer>
 </body>
 
 </html>

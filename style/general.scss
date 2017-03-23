@@ -1,0 +1,22 @@
+@import "variables.scss";
+
+#page {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#header {
+    border-bottom: 1px solid $grey1;
+}
+
+#main {
+    flex: 1;
+    padding-top: (4 * $padding);
+    padding-bottom: (4 * $padding);
+}
+
+#footer {
+    padding: (2 * $padding) 0;
+    border-top: 1px solid $grey2;
+}

@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 @font-face {
     font-family: 'icomoon';
     src: url('fonts/icomoon.eot?dlw5et');
@@ -25,32 +27,20 @@
     transform-origin: 50% 50%;
 }
 
-.icon-rotate-45 {
-    transform: rotate(45deg);
+.font-size-20 {
+    font-size: $iconSize1;
 }
 
-.icon-rotate-90 {
-    transform: rotate(90deg);
+.font-size-40 {
+    font-size: $iconSize2;
 }
 
-.icon-rotate-135 {
-    transform: rotate(135deg);
+.font-size-60 {
+    font-size: $iconSize3;
 }
 
-.icon-rotate-180 {
-    transform: rotate(180deg);
-}
-
-.icon-rotate-225 {
-    transform: rotate(225deg);
-}
-
-.icon-rotate-270 {
-    transform: rotate(270deg);
-}
-
-.icon-rotate-315 {
-    transform: rotate(315deg);
+.font-size-80 {
+    font-size: $iconSize4;
 }
 
 .icon-home:before {
