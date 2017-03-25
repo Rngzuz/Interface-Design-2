@@ -40,7 +40,8 @@
 
     @if $gutter {
         #{$colClasses} {
-            padding: 0 $gutter;
+            padding-right: $gutter;
+            padding-left: $gutter;
         }
     }
 }

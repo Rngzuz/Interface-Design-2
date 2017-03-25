@@ -7,131 +7,17 @@
 </head>
 
 <body id="page">
-
-    <header id="header">
-        <section class="container">
-            <div class="row">
-                <div class="col-small-12">
-                    header content
-                </div>
-            </div>
-        </section>
+    <header id="header" w3-include-html="partials/header.html">
     </header>
 
-    <main id="main" class="container">
-
-        <div class="row flex-justify-end-small x2-space-large">
-            <div class="col-small-12 col-large-9 space-small nospace-large">
-                <label for="fromairport">From city or airport</label>
-                <div class="input-group">
-                    <input id="fromairport" type="text" placeholder="Type to search...">
-                    <div class="icon-plane"></div>
-                </div>
-            </div>
-
-            <div class="col-small-12 col-large-grow">
-                <label for="fromdate">From date</label>
-                <div class="input-group">
-                    <input id="fromdate" type="text" placeholder="YYYY-MM-DD">
-                    <div class="icon-calendar-empty"></div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="hidden-large hidden-xlarge">
-
-        <div class="row flex-justify-end-small x2-space-large">
-            <div class="col-small-12 col-large-9 space-small nospace-large">
-                <label for="toairport">To city, airport or region</label>
-                <div class="input-group">
-                    <input id="toairport" type="text" placeholder="Type to search...">
-                    <div class="icon-plane"></div>
-                </div>
-            </div>
-
-            <div class="col-small-12 col-large-grow">
-                <label for="todate">To date</label>
-                <div class="input-group">
-                    <input id="todate" type="text" placeholder="YYYY-MM-DD">
-                    <div class="icon-calendar-empty"></div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="hidden-large hidden-xlarge">
-
-        <div class="row space-small">
-            <div class="col-small-shrink">
-                <label for="passengers">Passengers</label>
-                <div class="input-group" style="width: 96px;">
-                    <input id="passengers" class="text-center" type="text" minlength="1" maxlength="2" value="1">
-                    <div class="icon-users2"></div>
-                </div>
-            </div>
-
-            <div class="col-small-grow space-small nospace-medium">
-                <label for="trip">Trip type</label>
-                <div class="input-group">
-                    <select id="trip">
-                        <option>One-way trip</option>
-                        <option>Return trip</option>
-                    </select>
-                    <div class="icon-sync"></div>
-                </div>
-            </div>
-
-            <div class="col-small-12 col-medium-grow  space-small nospace-medium">
-                <label for="class">Ticket class</label>
-                <div class="input-group">
-                    <select id="class">
-                        <option>Economy class</option>
-                        <option>Business class</option>
-                        <option>First class</option>
-                    </select>
-                    <div class="icon-ticket"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row flex-justify-center-small">
-            <a href="#" class="button">Search</a>
-        </div>
+    <main id="main" w3-include-html="partials/search.html">
     </main>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <section class="container">
-            <div class="row flex-justify-center-small">
-                <div class="col-small-12 col-medium-grow">
-                    <b>Bold text</b>
-                    <ul>
-                        <li>Unordered item 1</li>
-                        <li>Unordered item 2</li>
-                        <li>Unordered item 3</li>
-                        <li>Unordered item 4</li>
-                    </ul>
-                </div>
-                <div class="col-small-12 col-medium-grow">
-                    <b>Bold text</b>
-                    <ul>
-                        <li>Unordered item 1</li>
-                        <li>Unordered item 2</li>
-                        <li>Unordered item 3</li>
-                        <li>Unordered item 4</li>
-                    </ul>
-                </div>
-                <div class="col-small-12 col-medium-grow">
-                    <b>Bold text</b>
-                    <ul>
-                        <li>Unordered item 1</li>
-                        <li>Unordered item 2</li>
-                        <li>Unordered item 3</li>
-                        <li>Unordered item 4</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <footer id="footer" w3-include-html="partials/footer.html">
     </footer>
+
+    <script src="js/w3data.js"></script>
+    <script src="js/content.js"></script>
 </body>
 
 </html>
