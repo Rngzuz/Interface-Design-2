@@ -40,15 +40,15 @@
     <hr class="hidden-large hidden-xlarge">
 
     <div class="row space-small">
-        <div class="col-small-shrink">
+        <div class="col-small-shrink space-small nospace-large">
             <label for="passengers">Passengers</label>
-            <div class="input-group" style="width: 96px;">
+            <div class="input-group" style="width: 100px;">
                 <input id="passengers" class="text-center" type="text" minlength="1" maxlength="2" value="1">
                 <div class="icon-users2"></div>
             </div>
         </div>
 
-        <div class="col-small-grow space-small nospace-medium">
+        <div class="col-small-grow">
             <label for="trip">Trip type</label>
             <div class="input-group">
                 <select id="trip">
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="col-small-12 col-medium-grow  space-small nospace-medium">
+        <div class="col-small-12 col-large-grow">
             <label for="class">Ticket class</label>
             <div class="input-group">
                 <select id="class">
@@ -73,6 +73,6 @@
     </div>
 
     <div class="row flex-justify-center-small">
-        <a onclick="go('partials/searchresult.html')" class="button">Search</a>
+        <button type="button" onclick="go('partials/searchresult.html')">Search</button>
     </div>
 </div>

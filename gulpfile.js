@@ -27,7 +27,9 @@ gulp.task('style', function () {
             outputStyle: 'expanded'
         }).on('error', sass.logError),
         autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: [
+                'last 4 versions'
+            ],
             cascade: true
         }),
         concat('style.css'),
