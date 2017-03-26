@@ -3,27 +3,44 @@
 html,
 body {
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
-#page {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+body {
+    position: relative;
+    padding-bottom: 162px;
+
+    @media (min-width: $breakpoint1) {
+        padding-bottom: 114px;
+    }
 }
 
 #header {
     padding: $padding 0;
     border-bottom: 1px solid $grey2;
+    text-transform: uppercase;
 }
 
 #main {
-    flex: 1;
     padding-top: (4 * $padding);
     padding-bottom: (4 * $padding);
 }
 
 #footer {
-    padding: (2 * $padding) 0;
-    border-top: 1px solid $grey2;
+    position: absolute;
+    background-color: $grey4;
+    color: $white;
+    padding: $padding 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    & img {
+        display: inline-block;
+        margin-right: $gutter * 2;
+        line-height: 30px;
+    }
+
+    & img:last-child {
+        margin-right: 0;
+    }
 }

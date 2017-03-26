@@ -39,3 +39,16 @@ hr {
 a {
     cursor: pointer;
 }
+
+%heading {
+    margin: 0 0 $padding 0;
+    line-height: 1;
+    font-weight: normal;
+}
+
+@for $index from 1 through 6 {
+    #{h + $index} {
+        @extend %heading;
+        font-size: floor($fontSizeHeading * ((11 - $index) / 10));
+    }
+}

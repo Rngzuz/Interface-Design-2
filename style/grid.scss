@@ -7,7 +7,6 @@
                 if($index, "-" + $index, "");
 }
 
-//Make specific sized flex columns
 @mixin flexColumns($columns, $prefix: null, $name: null, $gutter: null) {
     $colClasses: (
         createName($prefix, $name + "-grow"),
@@ -15,15 +14,27 @@
     );
 
     #{nth($colClasses, 1)} {
-        flex-basis: 0;
+        flex-basis: 0px;
         flex-grow: 1;
         max-width: 100%;
     }
 
     #{nth($colClasses, 2)} {
-        //flex-basis: 0;
+        flex-basis: auto;
         flex-grow: 0;
         flex-shrink: 1;
+    }
+
+    .text-right-#{$name} {
+        text-align: right;
+    }
+
+    .text-center-#{$name} {
+        text-align: center;
+    }
+
+    .text-left-#{$name} {
+        text-align: left;
     }
 
     @for $index from 1 through $columns {
