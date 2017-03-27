@@ -5,7 +5,7 @@ textarea,
 select {
     display: block;
     width: 100%;
-    height: 55px;
+    //height: 55px;
     padding: $padding;
     outline: 0 none;
     border: 2px solid $textColor;
@@ -24,6 +24,11 @@ select {
     &:focus::placeholder {
         color: $white;
     }
+}
+
+select {
+    padding-top: $padding - 1px;
+    padding-bottom: $padding - 2px;
 }
 
 label {

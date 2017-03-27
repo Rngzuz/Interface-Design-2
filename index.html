@@ -8,13 +8,104 @@
 </head>
 
 <body>
-    <header id="header" w3-include-html="partials/header.html">
+    <header id="header">
+        <nav id="navigation">
+            <div class="container">
+                <div class="row flex-items-center-small">
+                    <div class="col-small-grow">
+                        <a class="mono" onclick="go('partials/search.html')">MONO</a>
+                    </div>
+                    <div class="col-small-shrink">
+                        <a onclick="go('partials/search.html')">SEARCH</a>
+                    </div>
+                    <div class="col-small-shrink">
+                        <a onclick="go('partials/searchresult.html')">LOCATIONS</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section id="banner">
+            <div class="container">
+                <div class="center-block max-500">
+                    <h1 class="h1-big">
+                        <div>Discover.</div>
+                        <div>Order. Travel.</div>
+                    </h1>
+                    <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit. Donec volutpat magna ut venenatis efficitur. Pellentesque a urna semper, pharetra sapien sit amet, lacinia velit.</p>
+                    <a class="button">Read more</a>
+                </div>
+            </div>
+        </section>
     </header>
 
-    <main id="main" w3-include-html="partials/search.html">
+    <main id="main">
+        <div class="container">
+            <div class="row flex-justify-end-small">
+                <div class="col-small-grow space-small">
+                    <label for="fromairport">From city or airport</label>
+                    <input id="fromairport" type="text" placeholder="Type to search...">
+                </div>
+
+                <div class="col-small-shrink space-small">
+                    <label for="fromdate">From date</label>
+                    <input id="fromdate" style="width:145px;" type="text" placeholder="YYYY-MM-DD">
+                </div>
+            </div>
+
+            <div class="row flex-justify-end-small">
+                <div class="col-small-grow space-small">
+                    <label for="toairport">To city, airport or region</label>
+                    <input id="toairport" type="text" placeholder="Type to search...">
+                </div>
+
+                <div class="col-small-shrink space-small">
+                    <label for="todate">To date</label>
+                    <input id="todate" style="width:145px;" type="text" placeholder="YYYY-MM-DD">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-small-shrink space-small">
+                    <label for="passengers">Passengers</label>
+                    <input style="width:96px;" id="passengers" class="text-center-small" type="text" minlength="1" maxlength="2" value="1">
+                </div>
+
+                <div class="col-small-grow space-small">
+                    <label for="trip">Trip type</label>
+                    <select id="trip">
+                <option>One-way trip</option>
+                <option>Return trip</option>
+            </select>
+                </div>
+
+                <div class="col-small-12 col-large-grow space-small">
+                    <label for="class">Ticket class</label>
+                    <select id="class">
+                <option>Economy class</option>
+                <option>Business class</option>
+                <option>First class</option>
+            </select>
+                </div>
+            </div>
+
+            <div class="row flex-justify-center-small">
+                <button class="button" type="button" onclick="go('partials/searchresult.html')">Search</button>
+            </div>
+        </div>
     </main>
 
-    <footer id="footer" w3-include-html="partials/footer.html">
+    <footer id="footer">
+        <section class="container">
+            <div class="row flex-justify-center-small flex-items-center-small">
+                <div class="col-shrink-small">
+                    <a class="mono" onclick="go('partials/search.html')">MONO</a>
+                </div>
+                <div class="col-shrink-small">
+                    <b>copyright 2017</b>
+                </div>
+            </div>
+        </section>
     </footer>
 
     <script src="js/w3data.js"></script>
