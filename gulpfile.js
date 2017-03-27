@@ -8,12 +8,13 @@ var sourcemaps = require('gulp-sourcemaps');
 
 //string|string[] of path(s) to file(s)
 var files = [
-    'style/normalize.scss',
-    'style/typography.scss',
-    'style/grid.scss',
-    'style/general.scss',
-    'style/form.scss',
-    'style/pane.scss'
+    'scss/variables.scss',
+    'scss/normalize.scss',
+    'scss/typography.scss',
+    'scss/grid.scss',
+    'scss/general.scss',
+    'scss/form.scss',
+    'scss/pane.scss'
 ];
 
 gulp.task('style', function () {

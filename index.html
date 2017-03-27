@@ -15,19 +15,8 @@
                     <div class="col-small-grow">
                         <a class="mono" onclick="go('partials/search.html')">MONO</a>
                     </div>
-                    <div class="col-small-shrink">Search</div>
                     <div class="col-small-shrink">
-                        <a href="index.html">SEARCH</a>
-                    </div>
-                    <div class="col-small-shrink">
-                        <a class="burger" onclick="this.classList.toggle('active')" href="#">
-                            <div class="line"></div>
-                            <div class="line"></div>
-                            <div class="line"></div>
-                        </a>
-                    </div>
-                    <div class="col-small-shrink">
-                        <button class="burger" onclick="this.classList.toggle('active')" href="#">
+                        <button id="toggle" class="burger">
                             <div class="line"></div>
                             <div class="line"></div>
                             <div class="line"></div>
@@ -56,12 +45,12 @@
             <div class="row flex-justify-end-small">
                 <div class="col-small-12 col-xlarge-6">
                     <div class="row">
-                        <div class="col-small-grow space-small">
+                        <div class="col-small-12 col-medium-grow space-small">
                             <label for="fromairport">From city or airport</label>
                             <input id="fromairport" type="text" placeholder="Type to search...">
                         </div>
 
-                        <div class="col-small-shrink space-small">
+                        <div class="col-small-12 col-medium-shrink space-small">
                             <label for="fromdate">From date</label>
                             <input id="fromdate" maxlength="10" class="date" type="text" placeholder="YYYY-MM-DD">
                         </div>
@@ -69,12 +58,12 @@
                 </div>
                 <div class="col-small-12 col-xlarge-6">
                     <div class="row">
-                        <div class="col-small-grow space-small">
+                        <div class="col-small-12 col-medium-grow space-small">
                             <label for="toairport">To city, airport or region</label>
                             <input id="toairport" type="text" placeholder="Type to search...">
                         </div>
 
-                        <div class="col-small-shrink space-small">
+                        <div class="col-small-12 col-medium-shrink space-small">
                             <label for="todate">To date</label>
                             <input id="todate" maxlength="10" class="date" type="text" placeholder="YYYY-MM-DD">
                         </div>
@@ -126,8 +115,7 @@
 
     </footer>
 
-    <script src="js/w3data.js"></script>
-    <script src="js/content.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

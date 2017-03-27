@@ -39,12 +39,15 @@ label {
 input[type="button"],
 input[type="submit"],
 button {
+    cursor: pointer;
     border: 0;
     padding: 0;
 }
 
 .date {
-    max-width: 145px;
+    @media (min-width: $breakpoint1) {
+        max-width: 145px;
+    }
 }
 
 .button {
