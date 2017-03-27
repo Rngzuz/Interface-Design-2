@@ -153,7 +153,6 @@
 }
 
 .container {
-    //min-width: $breakpoint0;
     padding: (2 * $gutter);
     margin-right: auto;
     margin-left: auto;
@@ -196,7 +195,7 @@ ul.row {
 // MEDIUM BREAKPOINT
 @media (min-width: $breakpoint1) {
     .container {
-        width: $breakpoint1;
+        max-width: $breakpoint1;
     }
 
     @include flexUtils($medium);
@@ -225,7 +224,7 @@ ul.row {
 //LARGE BREAKPOINT
 @media (min-width: $breakpoint2) {
     .container {
-        width: $breakpoint2;
+        max-width: $breakpoint2;
     }
 
     @include flexUtils($large);
@@ -253,6 +252,10 @@ ul.row {
 
 //XLARGE BREAKPOINT
 @media (min-width: $breakpoint3) {
+    .container {
+        max-width: $breakpoint3;
+    }
+
     .hidden-#{$xlarge} {
         display: none;
     }
@@ -267,10 +270,6 @@ ul.row {
 
     .shown-#{$large} {
         display: none;
-    }
-
-    .container {
-        width: $breakpoint3;
     }
 
     @include flexUtils($xlarge);

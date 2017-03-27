@@ -1,3 +1,4 @@
+@import "variables.scss";
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
 *,
@@ -8,7 +9,8 @@
 
 html {
     font-family: sans-serif;
-    line-height: 1.15;
+    font-size: $fontSize;
+    line-height: $lineHeight;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -22,23 +24,17 @@ aside,
 footer,
 header,
 nav,
-section {
-    display: block;
-}
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
-
+section,
 figcaption,
 figure,
-main {
+main,
+details,
+menu {
     display: block;
 }
 
 figure {
-    margin: 1em 40px;
+    margin: 0;
 }
 
 hr {
@@ -47,6 +43,9 @@ hr {
     overflow: visible;
 }
 
+code,
+kbd,
+samp,
 pre {
     font-family: monospace, monospace;
     font-size: 1em;
@@ -70,19 +69,7 @@ abbr[title] {
 
 b,
 strong {
-    font-weight: inherit;
-}
-
-b,
-strong {
-    font-weight: bolder;
-}
-
-code,
-kbd,
-samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
+    font-weight: bold;
 }
 
 dfn {
@@ -91,7 +78,7 @@ dfn {
 
 mark {
     background-color: #ff0;
-    color: #000;
+    color: $black;
 }
 
 small {
@@ -137,16 +124,29 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: sans-serif;
-    font-size: 100%;
-    line-height: 1.15;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1;
     margin: 0;
+    background-image: none;
+    background-color: transparent;
 }
 
 button,
 input {
     overflow: visible;
 }
+
+input[type="button"],
+input[type="submit"],
+button {
+    &:focus,
+    &:active,
+    &:focus:active {
+        outline: 0 none;
+    }
+}
+
 
 button,
 select {
@@ -176,9 +176,9 @@ button:-moz-focusring,
 }
 
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+    border: 1px solid $borderColor;
+    margin: $fontSize 0 0 0;
+    padding: $padding;
 }
 
 legend {
@@ -225,11 +225,6 @@ textarea {
     font: inherit;
 }
 
-details,
-menu {
-    display: block;
-}
-
 summary {
     display: list-item;
 }
@@ -238,10 +233,7 @@ canvas {
     display: inline-block;
 }
 
-template {
-    display: none;
-}
-
+template,
 [hidden] {
     display: none;
 }

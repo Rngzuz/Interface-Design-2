@@ -1,157 +1,49 @@
 @import "variables";
 
-input[type="button"],
-input[type="checkbox"],
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="file"],
-input[type="hidden"],
-input[type="image"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="radio"],
-input[type="range"],
-input[type="reset"],
-input[type="search"],
-input[type="submit"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-textarea,
-select {
-    outline: 0 none;
-    border: 0;
-    background-color: transparent;
-    line-height: 1;
-    background-color: $white;
-
-    &:focus {
-        outline: 0 none;
-    }
-}
-
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
+input,
 textarea,
 select {
     display: block;
     width: 100%;
-    max-width: 100%;
-    height: $inputHeight;
-    border: 1px solid $grey2;
+    height: 55px;
     padding: $padding;
-    border-radius: $radius;
-    transition: background-color 0.4s ease, border-color 0.4s ease;
+    outline: 0 none;
+    border: 2px solid $textColor;
+    font-weight: bold;
 
     &:focus {
-        border-color: $black;
-        background-color: lighten($black, 95%);
+        outline: 0 none;
+        background-color: $textColor;
+        color: $white;
+    }
+
+    ::placeholder {
+        color: $borderColor;
+    }
+
+    &:focus::placeholder {
+        color: $white;
     }
 }
 
 label {
     display: inline-block;
     padding-bottom: $gutter;
-    line-height: 1;
+    font-weight: bold;
 }
 
-.input-group {
-    display: flex;
-
-    [class*="icon-"] {
-        flex-basis: 0 0 ($iconSize1 + ($padding * 2));
-        order: 1;
-        padding: (($inputHeight - $iconSize1 - 2px) / 2) $padding;
-        border: 1px solid $grey2;
-        border-right: 0;
-        border-radius: $radius 0 0 $radius;
-        transition: border-color 0.4s ease;
-
-        &:before {
-            transition: color 0.4s ease;
-            font-size: $iconSize1;
-            color: $grey3;
-        }
-    }
-
-    input:focus + [class*="icon-"],
-    select:focus + [class*="icon-"] {
-        border-color: $black;
-    }
-
-    input:focus + [class*="icon-"]:before,
-    select:focus + [class*="icon-"]:before {
-        color: $black;
-    }
-
-    select,
-    input {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-        order: 2;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-}
-
-input[type="button"],
-input[type="submit"],
-button {
-    background-image: none;
-    cursor: pointer;
-
-    &:focus,
-    &:active,
-    &:focus:active {
-        outline: 0 none;
-    }
-}
-
-.button,
-input[type="button"],
-input[type="submit"],
-button {
+.button {
     display: inline-block;
-    height: $inputHeight;
-    line-height: $inputHeight - 2px;
-    background-color: $white;
-    border: 1px solid $grey2;
+    line-height: 51px;
+    border: 2px solid $textColor;
     padding: 0 $padding*2;
-    color: $black;
-    border-radius: $radius;
     text-decoration: none;
-    transition: background-color 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
+    font-weight: bold;
 
     &:hover,
     &:focus {
-        background-color: lighten($black, 95%);
-    }
-
-    &:focus {
-        border-color: $black;
-    }
-}
-
-select {
-    option {
-        color: $black;
-        background-color: $white;
+        background-color: $textColor;
+        color: $white;
     }
 }

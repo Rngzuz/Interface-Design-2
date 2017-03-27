@@ -1,7 +1,6 @@
 @import "variables.scss";
 
 .pane {   
-    border: 1px solid $grey2;
-    border-bottom-color: $grey1;
+    border: 1px solid $borderColor;
     padding: $padding;
 }

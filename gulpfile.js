@@ -13,8 +13,7 @@ var files = [
     'style/grid.scss',
     'style/general.scss',
     'style/form.scss',
-    'style/pane.scss',
-    'style/icons.scss'
+    'style/pane.scss'
 ];
 
 gulp.task('style', function () {

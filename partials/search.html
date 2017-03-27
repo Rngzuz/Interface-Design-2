@@ -2,73 +2,52 @@
     <div class="row flex-justify-end-small x2-space-large">
         <div class="col-small-12 col-large-9 space-small nospace-large">
             <label for="fromairport">From city or airport</label>
-            <div class="input-group">
-                <input id="fromairport" type="text" placeholder="Type to search...">
-                <div class="icon-plane"></div>
-            </div>
+            <input id="fromairport" type="text" placeholder="Type to search...">
         </div>
 
         <div class="col-small-12 col-large-grow">
             <label for="fromdate">From date</label>
-            <div class="input-group">
-                <input id="fromdate" type="text" placeholder="YYYY-MM-DD">
-                <div class="icon-calendar-empty"></div>
-            </div>
+            <input id="fromdate" type="text" placeholder="YYYY-MM-DD">
         </div>
     </div>
 
     <div class="row flex-justify-end-small x2-space-large">
         <div class="col-small-12 col-large-9 space-small nospace-large">
             <label for="toairport">To city, airport or region</label>
-            <div class="input-group">
-                <input id="toairport" type="text" placeholder="Type to search...">
-                <div class="icon-plane"></div>
-            </div>
+            <input id="toairport" type="text" placeholder="Type to search...">
         </div>
 
         <div class="col-small-12 col-large-grow">
             <label for="todate">To date</label>
-            <div class="input-group">
-                <input id="todate" type="text" placeholder="YYYY-MM-DD">
-                <div class="icon-calendar-empty"></div>
-            </div>
+            <input id="todate" type="text" placeholder="YYYY-MM-DD">
         </div>
     </div>
 
     <div class="row space-small">
         <div class="col-small-shrink space-small nospace-large">
             <label for="passengers">Passengers</label>
-            <div class="input-group" style="width: 100px;">
-                <input id="passengers" class="text-center" type="text" minlength="1" maxlength="2" value="1">
-                <div class="icon-users2"></div>
-            </div>
+            <input id="passengers" class="text-center" type="text" minlength="1" maxlength="2" value="1">
         </div>
 
         <div class="col-small-grow">
             <label for="trip">Trip type</label>
-            <div class="input-group">
-                <select id="trip">
+            <select id="trip">
                 <option>One-way trip</option>
                 <option>Return trip</option>
             </select>
-                <div class="icon-sync"></div>
-            </div>
         </div>
 
         <div class="col-small-12 col-large-grow">
             <label for="class">Ticket class</label>
-            <div class="input-group">
-                <select id="class">
+            <select id="class">
                 <option>Economy class</option>
                 <option>Business class</option>
                 <option>First class</option>
             </select>
-                <div class="icon-ticket"></div>
-            </div>
         </div>
     </div>
 
     <div class="row flex-justify-center-small">
-        <button type="button" onclick="go('partials/searchresult.html')">Search</button>
+        <button class="button" type="button" onclick="go('partials/searchresult.html')">Search</button>
     </div>
 </div>
