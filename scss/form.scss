@@ -16,8 +16,8 @@ select {
         color: $white;
     }
 
-    ::placeholder {
-        color: $borderColor;
+    &::placeholder {
+        color: $textColor;
     }
 
     &:focus::placeholder {
@@ -52,9 +52,8 @@ button {
 
 .button {
     display: inline-block;
-    line-height: 51px;
     border: 2px solid $textColor;
-    padding: 0 $padding*2;
+    padding: ($padding - 2px) ($padding * 2);
     text-decoration: none;
     cursor: pointer;
     font-weight: bold;
@@ -63,5 +62,42 @@ button {
     &:focus {
         background-color: $textColor;
         color: $white;
+    }
+
+    &-small {
+        padding: ($padding / 2) $padding;
+    }
+
+    &-teal {
+        border-color: $contraTeal;
+        color: $contraTeal;
+
+        &:hover,
+        &:focus {
+            background-color: $contraTeal;
+            color: $white;
+        }
+    }
+
+    &-green {
+        border-color: $contraGreen;
+        color: $contraGreen;
+
+        &:hover,
+        &:focus {
+            background-color: $contraGreen;
+            color: $white;
+        }
+    }
+
+    &-red {
+        border-color: $contraRed;
+        color: $contraRed;
+
+        &:hover,
+        &:focus {
+            background-color: $contraRed;
+            color: $white;
+        }
     }
 }

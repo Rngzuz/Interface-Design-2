@@ -58,8 +58,13 @@ body {
 a {
     position: relative;
     cursor: pointer;
+    color: $textColor;
+    text-decoration: underline;
     
-    &:not(.button):not([class*="col-"]) {
+    &:hover,
+    &:focus,
+    &:active {
+        color: $textColor;
         text-decoration: none;
     }
 }
@@ -99,16 +104,20 @@ p {
         text-align: left;
     }
 
-    .text-clip-#{$name} {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: clip;
+    .text-light-#{$name} {
+        font-weight: 300;
     }
 
-    .text-ellipsis-#{$name} {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+    .text-18-#{$name} {
+        font-size: 18px;
+    }
+
+    .text-20-#{$name} {
+        font-size: 20px;
+    }
+
+    .text-22-#{$name} {
+        font-size: 22px;
     }
 }
 

@@ -116,23 +116,48 @@
 }
 
 @mixin gridSpace($name) {
+    .row.nogutter-#{$name} {
+        margin: 0;
+
+        & > [class*="#{$prefix}"] {
+            padding: 0;
+        }
+    }
+
     .space-#{$name} {
-        padding-bottom: 2 * $gutter;
+        padding-bottom: 2 * $gutter !important;
     }
 
     .x2-space-#{$name} {
-        padding-bottom: 2 * (2 * $gutter);
+        padding-bottom: 2 * (2 * $gutter) !important;
+    }
+
+    .x4-space-#{$name} {
+        padding-bottom: 4 * (2 * $gutter) !important;
     }
 
     .nospace-#{$name} {
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
     }
 
-    .nogutter-#{$name} {
-        padding: 0;
+    .margin-#{$name} {
+        margin-bottom: 2 * $gutter !important;
     }
-    .row.nogutter-#{$name} > [class*="#{$prefix}"] {
-        padding: 0;
+
+    .x2-margin-#{$name} {
+        margin-bottom: 2 * (2 * $gutter) !important;
+    }
+
+    .x4-margin-#{$name} {
+        margin-bottom: 4 * (2 * $gutter) !important;
+    }
+
+    .nomargin-#{$name} {
+        margin-bottom: 0 !important;
+    }
+
+    .nogutter-#{$name}:not(.row) {
+        padding: 0 !important;
     }
 }
 

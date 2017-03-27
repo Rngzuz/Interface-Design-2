@@ -18,20 +18,20 @@ $fontSize: 16px;
 $fontSizeHeading: $fontSize * 2;
 $lineHeight: 1.4;
 $radius: 6px;
+$padding: $fontSize;
 
-//$grey1: #808080;
-//$grey2: #CCCCCC;
-//$grey3: #A6A6A6;
-//$grey4: #383838;
+//COLORS
 $black: #000000;
 $white: #FFFFFF;
 
-$padding: $fontSize;
-
-//$inputHeight: floor($lineHeight * $fontSize) + floor($padding * 2) - 1px;
-
-//COLORS
 $teal: #84D2DA;
 $contraTeal: #263D40;
+
+$green: #84d96c;
+$contraGreen: #274020;
+
+$red: #d95f5f;
+$contraRed: #401c1c;
+
 $textColor: #2B2E33;
 $borderColor: #A6A6A6;
