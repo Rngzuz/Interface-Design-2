@@ -25,18 +25,6 @@
         flex-shrink: 1;
     }
 
-    .text-right-#{$name} {
-        text-align: right;
-    }
-
-    .text-center-#{$name} {
-        text-align: center;
-    }
-
-    .text-left-#{$name} {
-        text-align: left;
-    }
-
     @for $index from 1 through $columns {
         $width: 100%/$columns*$index;
         $colClass: createName($prefix, $name, $index);
@@ -148,10 +136,6 @@
     }
 }
 
-.flex {
-    display: flex;
-}
-
 .container {
     padding: (2 * $gutter);
     margin-right: auto;
@@ -174,23 +158,6 @@ ul.row {
 @include flexColumns($columns, $prefix, $small, $gutter);
 @include gridSpace($small);
 
-@media (max-width: $breakpoint1 - 1px) {
-    .hidden-#{$small} {
-        display: none;
-    }
-
-    .shown-#{$medium} {
-        display: none;
-    }
-
-    .shown-#{$large} {
-        display: none;
-    }
-
-    .shown-#{$xlarge} {
-        display: none;
-    }
-}
 
 // MEDIUM BREAKPOINT
 @media (min-width: $breakpoint1) {
@@ -201,24 +168,6 @@ ul.row {
     @include flexUtils($medium);
     @include flexColumns($columns, $prefix, $medium, $gutter);
     @include gridSpace($medium);
-}
-
-@media (min-width: $breakpoint1) and (max-width: $breakpoint2 - 1px) {
-    .hidden-#{$medium} {
-        display: none;
-    }
-
-    .shown-#{$small} {
-        display: none;
-    }
-
-    .shown-#{$large} {
-        display: none;
-    }
-
-    .shown-#{$xlarge} {
-        display: none;
-    }
 }
 
 //LARGE BREAKPOINT
@@ -232,44 +181,10 @@ ul.row {
     @include gridSpace($large);
 }
 
-@media (min-width: $breakpoint2) and (max-width: $breakpoint3 - 1px) {
-    .hidden-#{$large} {
-        display: none;
-    }
-
-    .shown-#{$small} {
-        display: none;
-    }
-
-    .shown-#{$medium} {
-        display: none;
-    }
-
-    .shown-#{$xlarge} {
-        display: none;
-    }
-}
-
 //XLARGE BREAKPOINT
 @media (min-width: $breakpoint3) {
     .container {
         max-width: $breakpoint3;
-    }
-
-    .hidden-#{$xlarge} {
-        display: none;
-    }
-
-    .shown-#{$small} {
-        display: none;
-    }
-
-    .shown-#{$medium} {
-        display: none;
-    }
-
-    .shown-#{$large} {
-        display: none;
     }
 
     @include flexUtils($xlarge);
