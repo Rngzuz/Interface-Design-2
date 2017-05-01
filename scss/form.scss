@@ -50,6 +50,39 @@ button {
     }
 }
 
+%button-teal {
+    border-color: $contraTeal;
+    color: $contraTeal;
+
+    &:hover,
+    &:focus {
+        background-color: $contraTeal;
+        color: $white;
+    }
+}
+
+%button-green {
+    border-color: $contraGreen;
+    color: $contraGreen;
+
+    &:hover,
+    &:focus {
+        background-color: $contraGreen;
+        color: $white;
+    }
+}
+
+%button-red {
+    border-color: $contraRed;
+    color: $contraRed;
+
+    &:hover,
+    &:focus {
+        background-color: $contraRed;
+        color: $white;
+    }
+}
+
 .button {
     display: inline-block;
     border: 2px solid $textColor;
@@ -69,35 +102,26 @@ button {
     }
 
     &-teal {
-        border-color: $contraTeal;
-        color: $contraTeal;
-
-        &:hover,
-        &:focus {
-            background-color: $contraTeal;
-            color: $white;
-        }
+        @extend %button-teal;
     }
 
     &-green {
-        border-color: $contraGreen;
-        color: $contraGreen;
-
-        &:hover,
-        &:focus {
-            background-color: $contraGreen;
-            color: $white;
-        }
+        @extend %button-green;
     }
 
     &-red {
-        border-color: $contraRed;
-        color: $contraRed;
-
-        &:hover,
-        &:focus {
-            background-color: $contraRed;
-            color: $white;
-        }
+        @extend %button-red;
     }
+}
+
+.teal .button {
+    @extend %button-teal;
+}
+
+.green .button {
+    @extend %button-green;
+}
+
+.red .button {
+    @extend %button-red;
 }

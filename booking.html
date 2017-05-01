@@ -1,110 +1,63 @@
-<!DOCTYPE html>
-<html>
+<main id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-small-12 col-large-shrink x2-space-small">
+                <div class="pane">
+                    <h4>To Germany</h4>
+                    <div>From <b>Kastrup, Copenhagen</b></div>
+                    <div class="space-small">With SAS</div>
+                    <span class="text-22-small">1.477 DKK&nbsp;</span>
+                    <span>pr. person</span>
+                </div>
+            </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
-</head>
+            <div class="col-small-12 col-large-grow x4-space-small">
+                <div class="pane margin-small">
+                    <h4>Information</h4>
+                    <p>Nam quis bibendum sapien. Integer faucibus, ex eu mattis blandit, augue lectus faucibus purus, a cursus metus libero sed arcu. Mauris pulvinar, mauris vel eleifend viverra, massa felis cursus nulla, vitae pulvinar urna nisi id ligula.</p>
+                    <p>Fusce efficitur lacinia turpis ac facilisis. Curabitur volutpat suscipit faucibus. Sed tristique finibus velit a placerat. Proin nec ultricies urna. Quisque sed semper enim, at consequat mi. Mauris a rhoncus neque. Nullam sodales interdum arcu, sagittis ultrices metus dictum ut.</p>
+                    <div>Fusce porttitor euismod condimentum. Nulla iaculis mollis dolor, id eleifend neque fringilla ac. Quisque tristique vulputate sem, vitae pulvinar tellus condimentum at.</div>
+                </div>
+            </div>
 
-<body>
-    <header id="header" class="red">
-        <nav id="navigation">
-            <div class="container">
-                <div class="row flex-items-center-small">
+            <div class="col-small-12">
+                <div class="space-small">
+                    <label for="cardholder">Card holder</label>
+                    <input id="cardholder" type="text" placeholder="E.g. your full name">
+                </div>
+
+                <div class="space-small">
+                    <label for="cardholder">Card number</label>
+                    <input id="cardholder" type="text" placeholder="Usually on the backside of your credit card">
+                </div>
+
+                <div class="row">
+                    <div class="col-small-grow space-small">
+                        <label for="expiration">Expiration date</label>
+                        <input id="expiration" maxlength="7" type="text" placeholder="YYYY-MM">
+                    </div>
                     <div class="col-small-grow">
-                        <a class="mono" href="index.html">MONO</a>
+                        <label for="cvc">CVC number</label>
+                        <input id="cvc" maxlength="3" type="text" placeholder="3 digits number">
                     </div>
-                    <div class="col-small-shrink">
-                        <button id="toggle" class="burger">
-                            <div class="line"></div>
-                            <div class="line"></div>
-                            <div class="line"></div>
-                        </button>
-                    </div>
+                </div>
+
+                <div class="text-center-small">
+                    <a class="button" href="index.html">Confirm payment</a>
                 </div>
             </div>
-        </nav>
+        </div>
+</main>
 
-        <section id="banner">
-            <div class="container">
-                <div class="center-block max-500">
-                    <h1 class="h1-big">
-                        <div>Discover.</div>
-                        <div>Order. Travel.</div>
-                    </h1>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit. Donec volutpat magna ut venenatis efficitur. Pellentesque a urna semper, pharetra sapien sit amet, lacinia velit.</p>
-                    <a class="button button-red">Read more</a>
-                </div>
+<footer id="footer">
+    <section class="container">
+        <div class="text-center-small">
+            <div>
+                <a class="mono" href="index.html">MONO</a>
             </div>
-        </section>
-    </header>
-
-    <main id="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-small-12 col-large-shrink x2-space-small">
-                    <div class="pane">
-                        <h4>To Germany</h4>
-                        <div>From <b>Kastrup, Copenhagen</b></div>
-                        <div class="space-small">With SAS</div>
-                        <span class="text-22-small">1.477 DKK&nbsp;</span>
-                        <span>pr. person</span>
-                    </div>
-                </div>
-
-                <div class="col-small-12 col-large-grow x4-space-small">
-                    <div class="pane margin-small">
-                        <h4>Information</h4>
-                        <p>Nam quis bibendum sapien. Integer faucibus, ex eu mattis blandit, augue lectus faucibus purus, a cursus metus libero sed arcu. Mauris pulvinar, mauris vel eleifend viverra, massa felis cursus nulla, vitae pulvinar urna nisi id ligula.</p>
-                        <p>Fusce efficitur lacinia turpis ac facilisis. Curabitur volutpat suscipit faucibus. Sed tristique finibus velit a placerat. Proin nec ultricies urna. Quisque sed semper enim, at consequat mi. Mauris a rhoncus neque. Nullam sodales interdum arcu, sagittis ultrices metus dictum ut.</p>
-                        <div>Fusce porttitor euismod condimentum. Nulla iaculis mollis dolor, id eleifend neque fringilla ac. Quisque tristique vulputate sem, vitae pulvinar tellus condimentum at.</div>
-                    </div>
-                </div>
-
-                <div class="col-small-12">
-                    <div class="space-small">
-                        <label for="cardholder">Card holder</label>
-                        <input id="cardholder" type="text" placeholder="E.g. your full name">
-                    </div>
-
-                    <div class="space-small">
-                        <label for="cardholder">Card number</label>
-                        <input id="cardholder" type="text" placeholder="Usually on the backside of your credit card">
-                    </div>
-
-                    <div class="row">
-                        <div class="col-small-grow space-small">
-                            <label for="expiration">Expiration date</label>
-                            <input id="expiration" maxlength="7" type="text" placeholder="YYYY-MM">
-                        </div>
-                        <div class="col-small-grow">
-                            <label for="cvc">CVC number</label>
-                            <input id="cvc" maxlength="3" type="text" placeholder="3 digits number">
-                        </div>
-                    </div>
-
-                    <div class="text-center-small">
-                        <a class="button" href="index.html">Confirm payment</a>
-                    </div>
-                </div>
+            <div>
+                <b>2017</b>
             </div>
-    </main>
-
-    <footer id="footer">
-        <section class="container">
-            <div class="text-center-small">
-                <div>
-                    <a class="mono" href="index.html">MONO</a>
-                </div>
-                <div>
-                    <b>2017</b>
-                </div>
-            </div>
-        </section>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+        </div>
+    </section>
+</footer>

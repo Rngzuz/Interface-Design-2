@@ -1,0 +1,73 @@
+<main id="main">
+    <div class="container">
+        <div class="row flex-justify-end-small">
+            <div class="col-small-12 col-xlarge-6">
+                <div class="row">
+                    <div class="col-small-12 col-medium-grow space-small">
+                        <label for="fromairport">From city or airport</label>
+                        <input id="fromairport" type="text" placeholder="Type to search...">
+                    </div>
+
+                    <div class="col-small-12 col-medium-shrink space-small">
+                        <label for="fromdate">From date</label>
+                        <input id="fromdate" maxlength="10" class="date" type="text" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
+            </div>
+            <div class="col-small-12 col-xlarge-6">
+                <div class="row">
+                    <div class="col-small-12 col-medium-grow space-small">
+                        <label for="toairport">To city, airport or region</label>
+                        <input id="toairport" type="text" placeholder="Type to search...">
+                    </div>
+
+                    <div class="col-small-12 col-medium-shrink space-small">
+                        <label for="todate">To date</label>
+                        <input id="todate" maxlength="10" class="date" type="text" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-small-shrink space-small">
+                <label for="passengers">Passengers</label>
+                <input style="width:96px;" id="passengers" class="text-center-small" type="text" minlength="1" maxlength="2" value="1">
+            </div>
+
+            <div class="col-small-grow space-small">
+                <label for="trip">Trip type</label>
+                <select id="trip">
+                    <option>One-way trip</option>
+                    <option>Return trip</option>
+                </select>
+            </div>
+
+            <div class="col-small-12 col-large-grow space-small">
+                <label for="class">Ticket class</label>
+                <select id="class">
+                    <option>Economy class</option>
+                    <option>Business class</option>
+                    <option>First class</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row flex-justify-center-small">
+            <a class="button" href="locations.html">Search</a>
+        </div>
+    </div>
+</main>
+
+<footer id="footer">
+    <section class="container">
+        <div class="text-center-small">
+            <div>
+                <a class="mono" href="index.html">MONO</a>
+            </div>
+            <div>
+                <b>2017</b>
+            </div>
+        </div>
+    </section>
+</footer>
