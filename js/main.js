@@ -1,9 +1,11 @@
-function load(element, url) {
+function load(element, url, success, error) {
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            wrap.innerHTML = xhr.responseText;
+            success(xhr);
+        } else {
+            error(xhr);
         }
     };
 
@@ -22,18 +24,16 @@ function load(element, url) {
 
     var header = document.querySelector('#header');
     var wrap = document.querySelector('#wrap');
+    var loader = document.querySelector('#loader');
 
     var MyRouter = new Router();
+    var MyHttp = new Http();
 
     MyRouter.register({
         title: 'Search',
         path: '/',
         callback: function (state) {
-            document.title = state.title;
-            header.classList.remove('red', 'green');
-            header.classList.add('teal');
-
-            load(wrap, '/search.html');
+            MyHttp.get('/search.html').then(success => console.log(success), error => console.error(error));
         }
     });
 
@@ -42,10 +42,22 @@ function load(element, url) {
         path: '/locations',
         callback: function (state) {
             document.title = state.title;
-            header.classList.remove('red', 'teal');
-            header.classList.add('green');
+            loader.classList.add('active');
 
-            load(wrap, '/locations.html');
+            load(wrap, '/locations.html',
+                function (xhr) {
+                    setTimeout(function () {
+                        header.classList.remove('red', 'teal');
+                        header.classList.add('green');
+                        wrap.innerHTML = xhr.responseText;
+                        loader.classList.remove('active');
+                    }, 400);
+                },
+                function (xhr) {
+                    setTimeout(function () {
+                        loader.classList.remove('active');
+                    }, 400);
+                });
         }
     });
 

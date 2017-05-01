@@ -7,6 +7,7 @@ var Router = function () {
         var state = _this.paths.get(event.state) || null;
 
         if (state !== null) {
+            document.title = state.title;
             state.callback(state);
         }
     });
@@ -29,6 +30,7 @@ Router.prototype.navigate = function (path) {
     var state = this.paths.get(path);
 
     if (state && path !== this.current) {
+        document.title = state.title;
         this.current = path;
         window.history.pushState(state.path, state.title, state.path);
         state.callback(state);

@@ -23,7 +23,12 @@ body {
 }
 
 #header {
-    transition: all 0.4s ease-in-out;
+    background-color: $borderColor;
+
+    #banner {
+        border-top: 1px solid lighten($borderColor, 10%);
+        color: $textColor;
+    }
 }
 
 #header.teal {
@@ -61,7 +66,6 @@ body {
 
 #banner {
     padding: 60px 0;
-    transition: border-color 0.4s ease-in-out;
 }
 
 #header .mono {
@@ -95,4 +99,22 @@ body {
 
 .max-500 {
     max-width: 500px;
+}
+
+#loader {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+#loader.active {
+    opacity: 1;
+    visibility: visible;
 }
