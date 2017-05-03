@@ -1,18 +1,3 @@
-function load(element, url, success, error) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            success(xhr);
-        } else {
-            error(xhr);
-        }
-    };
-
-    xhr.open('GET', url);
-    xhr.send();
-}
-
 (function () {
     document.addEventListener('click', function (event) {
         var cssClass = event.target.getAttribute('data-toggle-class') || null;
@@ -33,7 +18,26 @@ function load(element, url, success, error) {
         title: 'Search',
         path: '/',
         callback: function (state) {
-            MyHttp.get('/search.html').then(success => console.log(success), error => console.error(error));
+            loader.classList.add('active');
+
+            MyHttp
+                .get({
+                    url: '/search.html',
+                    async: true,
+                    timeout: 10000
+                })
+                .then(
+                function (response) {
+                    window.setTimeout(function () {
+                        wrap.innerHTML = response;
+                        header.classList.remove('red', 'green');
+                        header.classList.add('teal');
+                        loader.classList.remove('active');
+                    }, 500);
+                },
+                function (error) {
+                    console.error(error);
+                });
         }
     });
 
@@ -41,22 +45,25 @@ function load(element, url, success, error) {
         title: 'Locations',
         path: '/locations',
         callback: function (state) {
-            document.title = state.title;
             loader.classList.add('active');
 
-            load(wrap, '/locations.html',
-                function (xhr) {
-                    setTimeout(function () {
+            MyHttp
+                .get({
+                    url: '/locations.html',
+                    async: true,
+                    timeout: 10000
+                })
+                .then(
+                function (response) {
+                    window.setTimeout(function () {
+                        wrap.innerHTML = response;
                         header.classList.remove('red', 'teal');
                         header.classList.add('green');
-                        wrap.innerHTML = xhr.responseText;
                         loader.classList.remove('active');
-                    }, 400);
+                    }, 500);
                 },
-                function (xhr) {
-                    setTimeout(function () {
-                        loader.classList.remove('active');
-                    }, 400);
+                function (error) {
+                    console.error(error);
                 });
         }
     });
